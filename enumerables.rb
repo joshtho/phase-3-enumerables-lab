@@ -66,8 +66,17 @@ print_spiciest_foods(spicy_foods)
 # given an array of spicy foods, return an integer representing 
 # the average heat level of all the spicy foods in the array
 def average_heat_level(spicy_foods)
-  sum = 0
-  level = spicy_foods.each { |food| food[:heat_level] + sum }
-  binding.pry
+  total_heat_level = 0
+  spicy_foods.each do |food|
+    total_heat_level += food[:heat_level]
+  end
+  total_heat_level / spicy_foods.length
 end
-average_heat_level(spicy_foods)
+
+# alternate solution using sum
+# def average_heat_level(spicy_foods)
+#   total_heat_level = spicy_foods.sum do|food| 
+#     food[:heat_level] 
+#   end
+#   total_heat_level / spicy_foods.length
+# end
